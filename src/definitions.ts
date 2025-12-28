@@ -1,3 +1,8 @@
+export interface EmulatorDetectionResult {
+  isEmulator: boolean;
+  reasons: string[];
+}
+
 export interface DeviceIntegrityPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  detectEmulator(): Promise<EmulatorDetectionResult>;
 }
