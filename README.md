@@ -13,7 +13,7 @@ npx cap sync
 
 <docgen-index>
 
-* [`detectEmulator()`](#detectemulator)
+* [`checkIntegrity()`](#checkintegrity)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -21,13 +21,13 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### detectEmulator()
+### checkIntegrity()
 
 ```typescript
-detectEmulator() => Promise<EmulatorDetectionResult>
+checkIntegrity() => Promise<DeviceIntegrityResult>
 ```
 
-**Returns:** <code>Promise&lt;<a href="#emulatordetectionresult">EmulatorDetectionResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#deviceintegrityresult">DeviceIntegrityResult</a>&gt;</code>
 
 --------------------
 
@@ -35,11 +35,18 @@ detectEmulator() => Promise<EmulatorDetectionResult>
 ### Interfaces
 
 
-#### EmulatorDetectionResult
+#### DeviceIntegrityResult
 
-| Prop             | Type                  |
-| ---------------- | --------------------- |
-| **`isEmulator`** | <code>boolean</code>  |
-| **`reasons`**    | <code>string[]</code> |
+| Prop                  | Type                  |
+| --------------------- | --------------------- |
+| **`isRooted`**        | <code>boolean</code>  |
+| **`isEmulator`**      | <code>boolean</code>  |
+| **`isFridaDetected`** | <code>boolean</code>  |
+| **`rootScore`**       | <code>number</code>   |
+| **`emulatorScore`**   | <code>number</code>   |
+| **`fridaScore`**      | <code>number</code>   |
+| **`rootReasons`**     | <code>string[]</code> |
+| **`emulatorReasons`** | <code>string[]</code> |
+| **`fridaReasons`**    | <code>string[]</code> |
 
 </docgen-api>

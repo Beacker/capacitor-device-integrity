@@ -1,10 +1,28 @@
 import { WebPlugin } from '@capacitor/core';
+import type {
+  DeviceIntegrityPlugin,
+  DeviceIntegrityResult
+} from './definitions';
 
-import type { DeviceIntegrityPlugin } from './definitions';
+export class DeviceIntegrityWeb
+  extends WebPlugin
+  implements DeviceIntegrityPlugin {
 
-export class DeviceIntegrityWeb extends WebPlugin implements DeviceIntegrityPlugin {
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+  async checkIntegrity():
+    Promise<DeviceIntegrityResult> {
+
+    return {
+      isRooted: false,
+      isEmulator: false,
+      isFridaDetected: false,
+
+      rootScore: 0,
+      emulatorScore: 0,
+      fridaScore: 0,
+
+      rootReasons: [],
+      emulatorReasons: [],
+      fridaReasons: []
+    };
   }
 }
